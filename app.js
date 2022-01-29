@@ -1,6 +1,13 @@
 const express = require('express');
 const tasks = require('./routes/tasks');
+const connectDB = require('./config/connect');
 const app = express();
+
+// Middleware
+app.use(express.json());
+
+// Connect to DB
+connectDB();
 
 app.use('/api/v1/tasks', tasks);
 
