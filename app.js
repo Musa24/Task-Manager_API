@@ -11,6 +11,10 @@ connectDB();
 
 app.use('/api/v1/tasks', tasks);
 
+app.all('*', (req, res) => {
+  res.status(404).json({ msg: 'Page not found' });
+});
+
 const PORT = 3000;
 
 app.listen(PORT, (req, res) => {
